@@ -1,0 +1,688 @@
+// sass variables for repeated elements in the css
+$back-colour: hsl(226, 43%, 10%);
+$card-colour: hsl(235, 46%, 20%);
+$card-hover: hsl(235, 45%, 61%);
+$previous-colour: hsl(236, 100%, 87%);
+$header-font: 14px;
+$time-font: 45px;
+$previous-font: 12px;
+$card-width: 200px;
+$border-radius: 15px;
+$font-weight1: 300;
+$font-weight2: 400;
+$height1: 160px;
+$height2: 190px;
+$width: 200px;
+$margin-left: 10px;
+$padright: 5px;
+$bckrepeat: no-repeat;
+$bckposition: right top;
+$bcksize: 50px 50px;
+
+@mixin margin ($bottom, $top) {
+    margin-bottom: $bottom;
+    margin-top: $top;
+}
+
+// mixin for both sections
+@mixin sections ($alignment) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: $alignment;
+    width: 100%;
+    @include margin(20px, 20px);
+}
+
+@mixin containers {
+    margin: 0 20px;
+}
+
+@mixin banner ($banner-colour, $url) {
+    width: $width;
+    height: $height2;
+    background-image: $url;
+    background-repeat: $bckrepeat;
+    background-position: $bckposition;
+    background-size: $bcksize;
+    padding-right: $padright;
+    border-radius: $border-radius;
+    background-color: $banner-colour;
+}
+
+@mixin card {
+    position: relative;
+    top: 30px;
+    width: $card-width;
+    height: $height1;
+    border-radius: $border-radius;
+    background-color: $card-colour;
+}
+
+/* @mixin section2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    width: 100%;
+} */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: $back-colour;
+    max-width: 1440px;
+    max-height: 100vh;
+    font-family: 'Rubik', sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 100px 0 70px 0;
+}
+
+.section1 {
+    @include sections(flex-start);
+}
+
+.section2 {
+    @include sections(flex-end);
+}
+
+.work_container {
+    @include containers;
+}
+
+.play_container {
+    @include containers;
+}
+
+.study_container {
+    @include containers;
+}
+
+.exercise_container {
+    @include containers;
+}
+
+.social_container {
+    @include containers;
+}
+
+.self_container {
+    @include containers;
+}
+
+.info_card {
+    width: 15%;
+    height: 400px;
+    margin-right: 10px;
+    border-radius: $border-radius;
+    background-color: $card-colour;
+}
+
+.profile {
+    width: 100%;
+    height: 250px;
+    border-radius: $border-radius;
+    padding: 20px 20px 40px 20px;
+    background-color: hsl(246, 80%, 60%);
+    img {
+        background-color: white;
+        border-radius: 50%;
+        padding: 2px;
+    }
+}
+
+h2 {
+    color: white;
+    font-weight: $font-weight1;
+    font-size: 30px;
+    position: relative;
+    top: 30px;
+}
+
+#linkBtn {
+    position: relative;
+    top: 120px;
+}
+
+button {
+    border: none;
+    display: block;
+    font-size: $header-font;
+    margin: 10px 0;
+    color: hsl(235, 45%, 61%);
+    background-color: hsl(235, 46%, 20%);
+ } 
+
+ button:hover {
+    color: white;
+ }
+
+ button:active {
+    cursor:pointer;
+ }
+
+ .report {
+    position: relative;
+    top: 30px;
+    font-size: $header-font;
+    color: hsl(236, 100%, 87%);
+}
+
+.activities {
+    .work_card:hover {
+        background-color: $card-hover;
+    }
+    .play_card:hover {
+        background-color: $card-hover;
+    }
+    .study_card:hover {
+        background-color: $card-hover;
+    }
+    .exercise_card:hover {
+        background-color: $card-hover;
+    }
+    .social_card:hover {
+        background-color: $card-hover;
+    }
+    .self_card:hover {
+        background-color: $card-hover;
+    }
+}
+
+.work_container {
+    @include banner(hsl(15, 100%, 70%), url(images/icon-work.svg));
+}
+
+.section1 .work_card {
+   @include card;
+} 
+
+.work_card {
+    .ellipsis {
+        position: relative;
+        left: 150px;
+        top: 15px;
+    }
+    h4 {
+        color: white;
+        font-size: $header-font;
+        font-weight: $font-weight2;
+        position: relative;
+        top: 5px;
+        left: 10px;
+        margin-left: $margin-left;
+    }
+    .time {
+        color: white;
+        font-size: $time-font;
+        font-weight: $font-weight1;
+        position: relative;
+        top: 20px;
+        left: 10px;
+        margin-left: $margin-left;
+    }
+    .previous {
+        font-size: $previous-font;
+        position: relative;
+        top: 25px;
+        left: 10px;
+        color: $previous-colour;
+        margin-left: $margin-left;
+    }
+}
+
+.play_container {
+    @include banner(hsl(195, 74%, 62%), url(images/icon-play.svg));
+}
+
+.section1 .play_card {
+    @include card;
+ } 
+
+ .play_card {
+    .ellipsis {
+        position: relative;
+        left: 150px;
+        top: 15px;
+    }
+    h4 {
+        color: white;
+        font-size: $header-font;
+        font-weight: $font-weight2;
+        position: relative;
+        top: 5px;
+        left: 10px;
+        margin-left: $margin-left;
+    }
+    .time {
+        color: white;
+        font-size: $time-font;
+        font-weight: $font-weight1;
+        position: relative;
+        top: 20px;
+        left: 10px;
+        margin-left: $margin-left;
+    }
+    .previous {
+        font-size: $previous-font;
+        position: relative;
+        top: 25px;
+        left: 10px;
+        color: $previous-colour;
+        margin-left: $margin-left;
+    }
+}
+
+.study_container {
+    @include banner(hsl(348, 100%, 68%), url(images/icon-study.svg));
+}
+
+.section1 .study_card {
+    @include card;
+ } 
+
+ .study_card {
+    .ellipsis {
+        position: relative;
+        left: 150px;
+        top: 15px;
+    }
+    h4 {
+        color: white;
+        font-size: $header-font;
+        font-weight: $font-weight2;
+        position: relative;
+        top: 5px;
+        left: 10px;
+        margin-left: $margin-left;
+    }
+    .time {
+        color: white;
+        font-size: $time-font;
+        font-weight: $font-weight1;
+        position: relative;
+        top: 20px;
+        left: 10px;
+        margin-left: $margin-left;
+    }
+    .previous {
+        font-size: $previous-font;
+        position: relative;
+        top: 25px;
+        left: 10px;
+        color: $previous-colour;
+        margin-left: $margin-left;
+    }
+}
+
+.exercise_container {
+   @include banner (hsl(145, 58%, 55%), url(images/icon-exercise.svg))
+}
+
+.exercise_card {
+    @include card;
+}
+
+.exercise_card {
+    .ellipsis {
+        position: relative;
+        left: 150px;
+        top: 15px;
+    }
+    h4 {
+        color: white;
+        font-size: $header-font;
+        font-weight: $font-weight2;
+        position: relative;
+        top: 5px;
+        left: 10px;
+        margin-left: $margin-left;
+    }
+    .time {
+        color: white;
+        font-size: $time-font;
+        font-weight: $font-weight1;
+        position: relative;
+        top: 20px;
+        left: 10px;
+        margin-left: $margin-left;
+    }
+    .previous {
+        font-size: $previous-font;
+        position: relative;
+        top: 25px;
+        left: 10px;
+        color: $previous-colour;
+        margin-left: $margin-left;
+    }
+}
+
+.social_container {
+    @include banner (hsl(264, 64%, 52%), url(images/icon-social.svg))
+ }
+ 
+ .social_card {
+     @include card;
+ }
+ 
+ .social_card {
+     .ellipsis {
+         position: relative;
+         left: 150px;
+         top: 15px;
+     }
+     h4 {
+         color: white;
+         font-size: $header-font;
+         font-weight: $font-weight2;
+         position: relative;
+         top: 5px;
+         left: 10px;
+         margin-left: $margin-left;
+     }
+     .time {
+         color: white;
+         font-size: $time-font;
+         font-weight: $font-weight1;
+         position: relative;
+         top: 20px;
+         left: 10px;
+         margin-left: $margin-left;
+     }
+     .previous {
+         font-size: $previous-font;
+         position: relative;
+         top: 25px;
+         left: 10px;
+         color: $previous-colour;
+         margin-left: $margin-left;
+     }
+ }
+
+ .self_container {
+    @include banner (hsl(43, 84%, 65%), url(images/icon-self-care.svg))
+ }
+ 
+ .self_card {
+     @include card;
+ }
+ 
+ .self_card {
+     .ellipsis {
+         position: relative;
+         left: 150px;
+         top: 15px;
+     }
+     h4 {
+         color: white;
+         font-size: $header-font;
+         font-weight: $font-weight2;
+         position: relative;
+         top: 5px;
+         left: 10px;
+         margin-left: $margin-left;
+     }
+     .time {
+         color: white;
+         font-size: $time-font;
+         font-weight: $font-weight1;
+         position: relative;
+         top: 20px;
+         left: 10px;
+         margin-left: $margin-left;
+     }
+     .previous {
+         font-size: $previous-font;
+         position: relative;
+         top: 25px;
+         left: 10px;
+         color: $previous-colour;
+         margin-left: $margin-left;
+     }
+ }
+
+ @media (max-width: 375px) {
+    $m-margin-left: 16px;
+
+    @mixin activities {
+        width: 350px;
+        height: 165px;
+        margin-top: 10px;
+    }
+
+    @mixin act-card {
+        width: 350px;
+        height: 135px;
+    }
+
+    @mixin ellipsis {
+        position: relative;
+        left: 300px;
+        top: 15px;
+    }
+
+    @mixin prev {
+        position: relative;
+        top: -12px;
+        left: 228px;
+    }
+
+    @mixin coloum-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    body {
+        height: 100vh;
+        width: 100vw;
+        box-sizing: border-box;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+
+    .info_card {
+        width: 350px;
+        height: 300px;
+        margin-top: 40px;
+        margin-right: 0;
+    }
+
+    .profile {
+        height: 200px;
+    }
+
+    button {
+       display: inline;
+       margin: 0 55px 0 10px;
+    }
+
+    .month {
+        margin-right: 0;
+    }
+
+    .report {
+        position: relative;
+        top: -9px;
+        left: 95px;
+        font-size: 14px;
+    }
+
+    h2 {
+        position: relative;
+        top: 0px;
+        left: 95px;
+    }
+
+    .profile img {
+        position: relative;
+        top: 50px;
+        transform: scale(1.5);
+        margin: 0px 5px 0px 15px;
+    }
+
+    .section1 {
+        @include coloum-section;
+    }
+    
+    .section2 {
+        @include coloum-section;
+    }
+
+    .work_container {
+        @include activities;
+    }
+
+    .section1 .work_card {
+       @include act-card;
+    }
+
+    .work_card {
+        .ellipsis {
+            @include ellipsis;
+        }
+        h4 {
+            margin-left: $m-margin-left;
+        }
+        .time {
+            margin-left: $m-margin-left;
+        }
+        .previous {
+            @include prev;
+        }
+    }
+
+    .play_container {
+        @include activities;
+    }
+
+    .section1 .play_card {
+        @include act-card;
+    }
+
+    .play_card {
+        .ellipsis {
+            @include ellipsis;
+        }
+        h4 {
+            margin-left: $m-margin-left;
+        }
+        .time {
+            margin-left: $m-margin-left;
+        }
+        .previous {
+            @include prev;
+        }
+    }
+
+    .study_container {
+        @include activities;
+    }
+
+    .section1 .study_card {
+        @include act-card;
+    }
+
+    .study_card {
+        .ellipsis {
+            @include ellipsis;
+        }
+        h4 {
+            margin-left: $m-margin-left;
+        }
+        .time {
+            margin-left: $m-margin-left;
+        }
+        .previous {
+            @include prev;
+        }
+    }
+
+    .exercise_container {
+        @include activities;
+    }
+
+    .section2 .exercise_card {
+        @include act-card;
+    }
+
+    .exercise_card {
+        .ellipsis {
+            @include ellipsis;
+        }
+        h4 {
+            margin-left: $m-margin-left;
+        }
+        .time {
+            margin-left: $m-margin-left;
+        }
+        .previous {
+            @include prev;
+        }
+    }
+
+    .social_container {
+        @include activities;
+    }
+
+    .section2 .social_card {
+        @include act-card;
+    }
+
+    .social_card {
+        .ellipsis {
+            @include ellipsis;
+        }
+        h4 {
+            margin-left: $m-margin-left;
+        }
+        .time {
+            margin-left: $m-margin-left;
+        }
+        .previous {
+            @include prev;
+        }
+    }
+
+    .self_container {
+        @include activities;
+    }
+
+    .section2 .self_card {
+        @include act-card;
+    }
+
+    .self_card {
+        .ellipsis {
+            @include ellipsis;
+        }
+        h4 {
+            margin-left: $m-margin-left;
+        }
+        .time {
+            margin-left: $m-margin-left;
+        }
+        .previous {
+            @include prev;
+        }
+    }
+}
